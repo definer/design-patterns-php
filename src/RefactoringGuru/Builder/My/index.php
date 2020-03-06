@@ -86,7 +86,6 @@ class Director
 
 function clientcode()
 {
-
     $bmwAuto = new BmwAuto();
     $bmwAuto->createKuzov();
     $bmwAuto->createKolesa();
