@@ -5,7 +5,7 @@ namespace RefactoringGuru\Builder\My;
 // Нам необходимо построить машину
 // Машины разные, есть машины о БМВ, есть Аудио и Мерседес, у всех разный салон, кузон и колеса
 
-interface Auto
+interface AutoInterface
 {
     public function createSalon(): void;
 
@@ -14,7 +14,7 @@ interface Auto
     public function createKolesa(): void;
 }
 
-class BmwAuto implements Auto
+abstract class Auto implements AutoInterface
 {
     public $car;
 
@@ -28,6 +28,17 @@ class BmwAuto implements Auto
         $this->car = new Car();
     }
 
+    public function newCar(): Car
+    {
+        $result = $this->car;
+
+        $this->reset();
+        return $result;
+    }
+}
+
+class BmwAuto extends Auto
+{
     public function createSalon(): void
     {
         $this->car->parts[] = 'Новый салон для BMW';
@@ -41,14 +52,6 @@ class BmwAuto implements Auto
     public function createKolesa(): void
     {
         $this->car->parts[] = 'Новые колеса для BMW';
-    }
-
-    public function newCar(): Car
-    {
-        $result = $this->car;
-
-        $this->reset();
-        return $result;
     }
 }
 
