@@ -141,7 +141,7 @@ function clientCode(Component $component)
  * компоненты...
  */
 $simple = new ConcreteComponent;
-echo "Client: I've got a simple component:\n";
+zecho "Client: I've got a simple component:\n";
 clientCode($simple);
 echo "\n\n";
 
