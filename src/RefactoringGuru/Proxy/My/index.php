@@ -51,7 +51,6 @@ function clientcode(ProductInterface $subject)
 {
     echo $subject->get('Iphone 11');
     echo "\n";
-
 }
 
 $product = new Product();
